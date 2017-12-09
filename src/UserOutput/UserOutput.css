@@ -1,0 +1,9 @@
+.UserOutput {
+  border-bottom: 2px solid #eee;
+  border-top: 2px solid #eee;
+}
+
+.UserOutputMessage {
+  font-family: cursive;
+  font-size: 13px;
+}
