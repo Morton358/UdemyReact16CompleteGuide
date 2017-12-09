@@ -1,6 +1,7 @@
 .UserOutput {
   border-bottom: 2px solid #eee;
   border-top: 2px solid #eee;
+  background-color: darkgrey;
 }
 
 .UserOutputMessage {

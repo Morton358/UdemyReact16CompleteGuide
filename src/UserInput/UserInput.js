@@ -5,7 +5,7 @@ const userInput = (props) => {
   return(
     <div className="UserInput">
       <div className='UserInputName'>
-        <label for="name">Write your name:  </label>
+        <label for="name">Write your name: </label>
         <input id='name' type='text' value={props.username}
           onChange={props.eventHandlerUsername}/>
       </div>

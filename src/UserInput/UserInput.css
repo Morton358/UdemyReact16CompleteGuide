@@ -1,3 +1,7 @@
+.UserInput {
+  background-color: grey;
+}
+
 .UserInputName, .UserInputMessage {
   margin: auto;
   padding: 10px;
