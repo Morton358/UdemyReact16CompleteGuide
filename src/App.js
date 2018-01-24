@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import classes from './App.css';
 import Person from './Person/Person.js';
 
 class App extends Component {
@@ -41,31 +41,24 @@ class App extends Component {
         });
     };
 
-    deletePersonHandler = index => {
+    deletePersonHandler = (index) => {
         const newpersons = [...this.state.persons];
         newpersons.splice(index, 1);
         this.setState({ persons: newpersons });
     };
 
     render() {
-        const style = {
-            backgroundColor: 'green',
-            color: 'white',
-            font: 'inherit',
-            border: '1px solid blue',
-            padding: '8px',
-            cursor: 'pointer',
-        };
 
-        const classes = [];
+        const assignedClasses = [];
         if (this.state.persons.length <= 2) {
-            classes.push('red');
+            assignedClasses.push(classes.red);
         }
         if (this.state.persons.length <= 1) {
-            classes.push('bold');
+            assignedClasses.push(classes.bold);
         }
 
         let persons = null;
+        let buttonStyle = '';
 
         if (this.state.showPersons) {
             persons = this.state.persons.map((person, index) => {
@@ -73,7 +66,7 @@ class App extends Component {
                     <Person
                         name={person.name}
                         age={person.age}
-                        click={index => {
+                        click={() => {
                             this.deletePersonHandler(index);
                         }}
                         key={person.id}
@@ -83,14 +76,14 @@ class App extends Component {
                     />
                 );
             });
-            style.backgroundColor = 'red';
+            buttonStyle = classes.Red
         }
         return (
-            <div className="App">
+            <div className={classes.App}>
                 <h1>Hi I am React App!</h1>
-                <p className={classes.join(' ')}>This is really working!</p>
-                <button style={style} onClick={this.switchPersonsHandler}>
-                    toggle persons component
+                <p className={assignedClasses.join(' ')}> This is really working!</p>
+                <button className={buttonStyle} onClick={this.switchPersonsHandler}>
+                    Toggle persons component
                 </button>
                 {persons}
             </div>
