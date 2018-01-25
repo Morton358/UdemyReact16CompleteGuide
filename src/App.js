@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person.js';
-import ErrorBandler from './ErrorBandler/ErrorBandler';
 
 class App extends Component {
     state = {
@@ -63,18 +62,17 @@ class App extends Component {
         if (this.state.showPersons) {
             persons = this.state.persons.map((person, index) => {
                 return (
-                    <ErrorBandler key={person.id}>
-                        <Person
-                            name={person.name}
-                            age={person.age}
-                            click={() => {
-                                this.deletePersonHandler(index);
-                            }}
-                            chenged={event => {
-                                this.nameChangeHandler(event, person.id);
-                            }}
-                        />
-                    </ErrorBandler>
+                    <Person
+                        name={person.name}
+                        key={person.id}
+                        age={person.age}
+                        click={() => {
+                            this.deletePersonHandler(index);
+                        }}
+                        chenged={event => {
+                            this.nameChangeHandler(event, person.id);
+                        }}
+                    />
                 );
             });
             buttonStyle = classes.Red;
