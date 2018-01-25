@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import classes from './App.css';
 import Person from './Person/Person.js';
+import ErrorBandler from './ErrorBandler/ErrorBandler';
 
 class App extends Component {
     state = {
@@ -41,14 +42,13 @@ class App extends Component {
         });
     };
 
-    deletePersonHandler = (index) => {
+    deletePersonHandler = index => {
         const newpersons = [...this.state.persons];
         newpersons.splice(index, 1);
         this.setState({ persons: newpersons });
     };
 
     render() {
-
         const assignedClasses = [];
         if (this.state.persons.length <= 2) {
             assignedClasses.push(classes.red);
@@ -63,26 +63,33 @@ class App extends Component {
         if (this.state.showPersons) {
             persons = this.state.persons.map((person, index) => {
                 return (
-                    <Person
-                        name={person.name}
-                        age={person.age}
-                        click={() => {
-                            this.deletePersonHandler(index);
-                        }}
-                        key={person.id}
-                        chenged={event => {
-                            this.nameChangeHandler(event, person.id);
-                        }}
-                    />
+                    <ErrorBandler key={person.id}>
+                        <Person
+                            name={person.name}
+                            age={person.age}
+                            click={() => {
+                                this.deletePersonHandler(index);
+                            }}
+                            chenged={event => {
+                                this.nameChangeHandler(event, person.id);
+                            }}
+                        />
+                    </ErrorBandler>
                 );
             });
-            buttonStyle = classes.Red
+            buttonStyle = classes.Red;
         }
         return (
             <div className={classes.App}>
                 <h1>Hi I am React App!</h1>
-                <p className={assignedClasses.join(' ')}> This is really working!</p>
-                <button className={buttonStyle} onClick={this.switchPersonsHandler}>
+                <p className={assignedClasses.join(' ')}>
+                    {' '}
+                    This is really working!
+                </p>
+                <button
+                    className={buttonStyle}
+                    onClick={this.switchPersonsHandler}
+                >
                     Toggle persons component
                 </button>
                 {persons}

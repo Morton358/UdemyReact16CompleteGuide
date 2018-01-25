@@ -2,6 +2,11 @@ import React from 'react';
 import classes from './Person.css';
 
 const person = props => {
+
+    // const rnd = Math.random();
+    // if (rnd > 0.7) {
+    //     throw Error('Something go wrong')
+    // } For symulation errors
     return (
         <div className={classes.Person}>
             <p onClick={props.click}>
@@ -14,27 +19,3 @@ const person = props => {
 };
 
 export default person;
-
-// import React, { Component } from 'react';
-//
-// class Person extends Component {
-//   constructor(props){
-//     super(props)
-//   }
-//
-//   changeParagraph = () => {
-//     return this.props.click()
-//   }
-//
-//   render() {
-//     return (
-//       <div>
-//         <p onClick={this.changeParagraph}>I`m {this.props.name} and I`m {this.props.age} years old!</p>
-//         <p>{this.props.children}</p>
-//       </div>
-//     );
-//   }
-//
-// }
-//
-// export default Person;
