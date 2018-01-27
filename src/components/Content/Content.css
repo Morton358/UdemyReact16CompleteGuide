@@ -1,4 +1,4 @@
-.App {
+.Content {
   text-align: center;
 }
 
@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-.App button {
+.Content button {
     background-color: green;
     border: 1px solid blue;
     color: white;
@@ -19,16 +19,16 @@
     padding: 8px;
 }
 
-.App button:hover {
+.Content button:hover {
     background-color: lightgreen;
     color: black;
 }
 
-.App button.Red {
+.Content button.Red {
     background-color: red;
 }
 
-.App button.Red:hover {
+.Content button.Red:hover {
     background-color: salmon;
     color: black;
 }
