@@ -4,27 +4,39 @@ import Persons from '../components/Persons/Persons';
 import Content from '../components/Content/Content';
 
 class App extends Component {
-    state = {
-        persons: [
-            {
-                id: 0,
-                name: 'Bob',
-                age: 28
-            },
-            {
-                id: 1,
-                name: 'Nick',
-                age: 26
-            },
-            {
-                id: 2,
-                name: 'Sam',
-                age: 32
-            }
-        ],
-        otherState: 'some other value',
-        showPersons: false
-    };
+    constructor(props){
+        super(props);
+        console.log('[App.js] Inside Constructor', props);
+
+        this.state = {
+            persons: [
+                {
+                    id: 0,
+                    name: 'Bob',
+                    age: 28
+                },
+                {
+                    id: 1,
+                    name: 'Nick',
+                    age: 26
+                },
+                {
+                    id: 2,
+                    name: 'Sam',
+                    age: 32
+                }
+            ],
+            otherState: 'some other value',
+            showPersons: false
+        };
+    }
+
+    componentWillMount() {
+        console.log('[App.js] Inside WillMount');
+    }
+    componentDidMount() {
+        console.log('[App.js] Inside Did Mount');
+    }
 
     nameChangeHandler = (event, personId) => {
         const newpersons = [...this.state.persons];
@@ -49,6 +61,7 @@ class App extends Component {
     };
 
     render() {
+        console.log('[App.js] Inside Render Method');
         let persons = null;
         if (this.state.showPersons) {
             persons = (
