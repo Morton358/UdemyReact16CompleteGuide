@@ -1,5 +1,6 @@
 import React from 'react';
 import classes from './Content.css';
+import withClass from '../../hoc/withClass';
 
 const content = props => {
     const assignedClasses = [];
@@ -16,7 +17,7 @@ const content = props => {
     }
 
     return (
-        <div className={classes.Content}>
+        <React.Fragment>
             <h1>{props.appTitle}</h1>
             <p className={assignedClasses.join(' ')}>
                 This is really working!
@@ -26,13 +27,8 @@ const content = props => {
                 onClick={props.click}>
                 Toggle persons component
             </button>
-        </div>
+        </React.Fragment>
     )
 }
 
-
-
-
-
-
-export default content;
+export default withClass(content, classes.Content);
