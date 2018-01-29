@@ -27,7 +27,8 @@ class App extends Component {
                 }
             ],
             otherState: 'some other value',
-            showPersons: false
+            showPersons: false,
+            toggleClicked: 0
         };
     }
 
@@ -49,9 +50,13 @@ class App extends Component {
 
     switchPersonsHandler = () => {
         const tempShowPersons = this.state.showPersons;
-        this.setState({
-            showPersons: !tempShowPersons
-        });
+        this.setState( (prevState) => {
+            return {
+                showPersons: !tempShowPersons,
+                toggleClicked: prevState.toggleClicked + 1
+            }
+        }
+        );
     };
 
     deletePersonHandler = index => {
@@ -72,7 +77,7 @@ class App extends Component {
                 />)
         }
         return (
-            <div>
+            <React.Fragment>
                 <Content
                     appTitle={this.props.title}
                     countPersons={this.state.persons.length}
@@ -80,7 +85,7 @@ class App extends Component {
                     click={this.switchPersonsHandler}
                 />
                 {persons}
-            </div>
+            </React.Fragment>
         );
     }
 }

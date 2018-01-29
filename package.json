@@ -49,6 +49,7 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "babel-preset-latest": "^6.24.1",
     "eslint": "^4.16.0",
     "eslint-plugin-react": "^7.5.1"
   },
