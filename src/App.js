@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
+import Layout from './components/Layout/Layout';
 
 class App extends Component {
     state = {};
 
     render() {
         return (
-            <div className="App">
-                <h1>Hi I am React App!</h1>
+            <div>
+                <Layout>
+                    <p>Burger Builder</p>
+                </Layout>
             </div>
         );
     }
