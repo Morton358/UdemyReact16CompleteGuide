@@ -16,7 +16,17 @@ const buildControls = (props) => {
     })
     return (
         <div className={classes.BuildControls}>
+            <p className={classes.Price}>
+                <i> Current price: </i>
+                <strong>{props.price.toFixed(2)}</strong>
+            </p>
             {container}
+            <button
+                className={classes.OrderButton}
+                disabled={!props.forSale}
+            >
+                ORDER NOW
+            </button>
         </div>
     );
 }

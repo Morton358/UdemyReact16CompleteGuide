@@ -17,7 +17,15 @@ class BurgerBuilder extends Component {
             Bacon: 0,
             Meat: 0
         },
-        totalPrice: 10
+        totalPrice: 10,
+        forSale: false
+    }
+
+    updateForSaleState(obj) {
+        const sum = Object.values(obj).reduce((acc, el) => {
+            return acc + el
+        }, 0);
+        this.setState({forSale: sum > 0});
     }
 
     addIngredientHandler = (type) => {
@@ -26,6 +34,7 @@ class BurgerBuilder extends Component {
         const oldPrice = this.state.totalPrice
         const newPrice = oldPrice + INGGREDIENTS_PRICES[type]
         this.setState({ingredients: updatedIngredients, totalPrice: newPrice});
+        this.updateForSaleState(updatedIngredients);
     }
 
     removeIngredientHandler = (type) => {
@@ -37,6 +46,7 @@ class BurgerBuilder extends Component {
         const oldPrice = this.state.totalPrice
         const newPrice = oldPrice - INGGREDIENTS_PRICES[type]
         this.setState({ingredients: updatedIngredients, totalPrice: newPrice});
+        this.updateForSaleState(updatedIngredients);
     }
 
     render() {
@@ -58,6 +68,8 @@ class BurgerBuilder extends Component {
                         ingredientAdder={this.addIngredientHandler}
                         ingredientRemover={this.removeIngredientHandler}
                         disable={disabledInfo}
+                        price={this.state.totalPrice}
+                        forSale={this.state.forSale}
                     />
                 </div>
             </React.Fragment>
