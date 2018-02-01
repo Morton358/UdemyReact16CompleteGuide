@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
+import Modal from '../../components/UI/Modal/Modal.js';
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
+
 
 const INGGREDIENTS_PRICES = {
     Salad: 8,
@@ -18,7 +21,8 @@ class BurgerBuilder extends Component {
             Meat: 0
         },
         totalPrice: 10,
-        forSale: false
+        forSale: false,
+        openModal: false
     }
 
     updateForSaleState(obj) {
@@ -49,6 +53,18 @@ class BurgerBuilder extends Component {
         this.updateForSaleState(updatedIngredients);
     }
 
+    handleOpenModal = () => {
+        this.setState({openModal: true})
+    }
+
+    handleCloseModal = () => {
+        this.setState({openModal: false})
+    }
+
+    handleSubmitOrder = () => {
+        alert('You submited order!')
+    }
+
     render() {
         const arrIngredients = Object.keys(this.state.ingredients)
 
@@ -59,6 +75,16 @@ class BurgerBuilder extends Component {
 
         return (
             <React.Fragment>
+                <Modal
+                    open={this.state.openModal}
+                    close={this.handleCloseModal}
+                    submit={this.handleSubmitOrder}
+                >
+                    <OrderSummary
+                        ingredients={this.state.ingredients}
+                        price={this.state.totalPrice}
+                    />
+                </Modal>
                 <div>
                     <Burger ingredients={this.state.ingredients} />
                 </div>
@@ -70,6 +96,7 @@ class BurgerBuilder extends Component {
                         disable={disabledInfo}
                         price={this.state.totalPrice}
                         forSale={this.state.forSale}
+                        order={this.handleOpenModal}
                     />
                 </div>
             </React.Fragment>
