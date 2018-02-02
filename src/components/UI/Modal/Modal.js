@@ -20,6 +20,7 @@ class Modal extends Component {
         return(
             <Dialog
                 title="Your order:"
+                autoScrollBodyContent={true}
                 actions={actions.map(el => el)}
                 modal={true}
                 open={this.props.open}
