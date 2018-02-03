@@ -3,6 +3,15 @@ import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 
 class Modal extends Component {
+
+    shouldComponentUpdate(nextProps) {
+        return nextProps.open !== this.props.open;
+    }
+
+    componentWillUpdate() {
+        console.log('[Modal] WillUpdate');
+    }
+
     render(){
         const actions = [
             <FlatButton

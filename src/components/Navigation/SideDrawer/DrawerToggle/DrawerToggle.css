@@ -1,0 +1,11 @@
+.Menu {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    outline:none;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    align-items: center;
+}
