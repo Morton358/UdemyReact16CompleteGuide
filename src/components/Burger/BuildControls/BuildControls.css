@@ -9,6 +9,19 @@
     width: 100%;
 }
 
+@media (min-width: 501px) and (max-width: 1300px) {
+    .GridOfBuildControls {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 1301px) and (max-width: 2500px) {
+    .GridOfBuildControls {
+        column-count: 3;
+    }
+}
+
+
 .Price {
     font-size: 20px;
 }

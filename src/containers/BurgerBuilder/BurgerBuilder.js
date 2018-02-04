@@ -6,15 +6,19 @@ import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary';
 
 
 const INGGREDIENTS_PRICES = {
+    Tomato: 2.5,
+    Onion: 1.5,
     Salad: 8,
     Cheese: 5,
     Bacon: 7,
-    Meat: 10
+    Meat: 10,
 }
 
 class BurgerBuilder extends Component {
     state = {
         ingredients: {
+            Tomato: 0,
+            Onion: 0,
             Salad: 0,
             Cheese: 0,
             Bacon: 0,

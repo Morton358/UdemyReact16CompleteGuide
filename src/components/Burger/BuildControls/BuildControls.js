@@ -20,7 +20,9 @@ const buildControls = (props) => {
                 <i> Current price: </i>
                 <strong>{props.price.toFixed(2)}</strong>
             </p>
-            {container}
+            <div className={classes.GridOfBuildControls}>
+                {container}
+            </div>
             <button
                 className={classes.OrderButton}
                 disabled={!props.forSale}
