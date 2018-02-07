@@ -1,20 +1,15 @@
 import React, { Component } from 'react';
-import './App.css';
 
+import Blog from './containers/Blog/Blog';
 
 class App extends Component {
-  state = {
-
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Hi I am React App!</h1>
-      
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div>
+                <Blog />
+            </div>
+        );
+    }
 }
 
 export default App;
