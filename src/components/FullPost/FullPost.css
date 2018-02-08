@@ -1,9 +1,9 @@
 .FullPost {
-    width: 80%;
-    margin: 20px auto;
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;
+    margin: 20px auto;
     text-align: center;
+    width: 80%;
 }
 
 .Edit {
@@ -11,16 +11,16 @@
 }
 
 .Edit label {
-    display: block;
     color: grey;
+    display: block;
 }
 
 .Edit button {
-    border: none;
     background-color: transparent;
+    border: none;
+    color: #fa923f;
     cursor: pointer;
     outline: none;
-    color: #fa923f;
 }
 
 .Edit button:hover,
