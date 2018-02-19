@@ -1,0 +1,7 @@
+.Courses {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 80%;
+}

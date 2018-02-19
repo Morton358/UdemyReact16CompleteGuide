@@ -1,11 +1,3 @@
-.Courses {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    margin: auto;
-    width: 80%;
-}
-
 .Course {
     border: 1px solid #eee;
     box-shadow: 0 2px 3px #ccc;

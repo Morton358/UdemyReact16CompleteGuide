@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 class Course extends Component {
+    componentDidMount() {
+        console.log(this.props);
+    }
     render () {
         return (
             <div>
