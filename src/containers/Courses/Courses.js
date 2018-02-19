@@ -1,26 +1,18 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Route } from 'react-router-dom';
 
 import ListCourses from '../../components/ListCourses/ListCourses';
-import Course from '../Course/Course';
+import Course from '../../components/Course/Course';
+import './Courses.css';
 
+const courses = (props) => (
+    <div>
+        <Route path={props.match.url} component={ListCourses} />
+        <Route
+            path={props.match.url + '/course/:id'}
+            component={Course}
+        />
+    </div>
+);
 
-class Courses extends Component {
-
-
-
-
-    render() {
-        return (
-            <div>
-                <Route path={this.props.match.url} component={}
-                <Route
-                    path={this.props.match.url + '/course/:id'}
-                    component={Course}
-                />
-            </div>
-        );
-    }
-}
-
-export default Courses;
+export default courses;

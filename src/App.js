@@ -3,8 +3,7 @@ import { Route, NavLink, Switch } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
-import ToDo from './components/ToDo/ToDo';
-// import Course from './containers/Course/Course';
+import ToDo from './containers/ToDo/ToDo';
 import './App.css';
 
 class App extends Component {
