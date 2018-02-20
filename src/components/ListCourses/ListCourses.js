@@ -1,21 +1,16 @@
 import React, { Component } from 'react';
 
-
 class ListCourses extends Component {
-    state = {
-        courses: [
-            { id: 1, title: 'Angular - The Complete Guide' },
-            { id: 2, title: 'Vue - The Complete Guide' },
-            { id: 3, title: 'PWA - The Complete Guide' }
-        ]
-    };
-
     componentDidMount() {
-        // console.log(this.props);
+        console.log(this.props);
     }
 
-    goToSelectedCourse(id) {
-        this.props.history.push(this.props.match.url + '/course/' + id);
+    goToSelectedCourse(id, title) {
+        this.props.history.push({
+            pathname: this.props.match.url + '/course/' + id,
+            search: '?title=' + title
+        });
+        this.props.match.url + '/course/' + id;
     }
 
     render() {
@@ -23,13 +18,16 @@ class ListCourses extends Component {
             <div>
                 <h1>Amazing Udemy Courses</h1>
                 <section className="ListCourses">
-                    {this.state.courses.map(course => {
+                    {this.props.courses.map(course => {
                         return (
                             <article
                                 className="ListCoursesCourse"
                                 key={course.id}
                                 onClick={() => {
-                                    this.goToSelectedCourse(course.id)
+                                    this.goToSelectedCourse(
+                                        course.id,
+                                        course.title
+                                    );
                                 }}
                             >
                                 {course.title}
@@ -40,7 +38,6 @@ class ListCourses extends Component {
             </div>
         );
     }
-
 }
 
 export default ListCourses;

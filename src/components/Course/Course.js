@@ -1,37 +1,56 @@
 import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
 
 class Course extends Component {
     state = {
-        courseTitle: null,
-        courseId: null
-    };
+        title: null
+    }
+
     componentDidMount() {
-        this.loadData();
+        console.log(this.props)
+        this.getTitle();
     }
 
-    componentDidUpdate() {
-        this.loadData();
-    }
-
-    loadData() {
-        if (this.props.match.params.id) {
-            this.setState({ courseId: +this.props.match.params.id });
+    getTitle () {
+        const query = new URLSearchParams(this.props.location.search);
+        let title = null;
+        for(let param of query.entries()){
+            title = param;
         }
+        this.setState({title: title[1]});
     }
 
     render() {
-        let courseHolder = <h2>... Loading</h2>;
-        if (this.state.courseId) {
-            courseHolder = (
-                <div>
-                    <h1>_COURSE_TITLE_</h1>
-                    <p>
-                        You selected the Course with ID: {this.state.courseId}
-                    </p>
-                </div>
-            );
+        const appropriateCourse = this.props.courses.find(course => {
+            return course.id === +this.props.match.params.id;
+        });
+        let courseTitle = null;
+        if (this.state.title) {
+            courseTitle = <h2>{this.state.title}</h2>
         }
-        return { courseHolder };
+        return (
+            <div>
+                <h1>{appropriateCourse.title}</h1>
+                {courseTitle}
+                <p>
+                    You selected the Course with ID:{' '}
+                    {this.props.match.params.id}
+                </p>
+                <NavLink
+                    to="/courses"
+                    activeStyle={{
+                        backgroundColor: 'lightgrey',
+                        textAlign: 'left',
+                        textDecoration: 'none',
+                        fontWeight: 'bold',
+                        color: 'black',
+                        pointer: 'cursor'
+                    }}
+                >
+                    Back
+                </NavLink>
+            </div>
+        );
     }
 }
 
