@@ -4,6 +4,7 @@ import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
 import ToDo from './containers/ToDo/ToDo';
+import NoMatch from './utils/NoMatch';
 import './App.css';
 
 class App extends Component {
@@ -22,6 +23,8 @@ class App extends Component {
                     <Route path="/users" component={Users} />
                     <Route path="/todo" component={ToDo} />
                     <Redirect from="/" to="courses/" exact/>
+                    <Redirect from="/all-courses" to="courses/" exact/>
+                    <Route component={NoMatch} />
                 </Switch>
             </div>
         );
