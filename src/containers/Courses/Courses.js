@@ -35,6 +35,7 @@ class Courses extends Component {
         return (
             <div>
                 <PropsRoute
+                    exact
                     path={this.props.match.url}
                     courses={this.state.courses}
                     // render={MyListCourses}
