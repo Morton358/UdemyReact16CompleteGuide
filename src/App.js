@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, NavLink, Switch } from 'react-router-dom';
+import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
@@ -19,12 +19,9 @@ class App extends Component {
 
                 <Switch>
                     <Route path="/courses" component={Courses} />
-                    {/* <Route
-                        path='/courses/course/:id'
-                        component={Course}
-                    /> */}
                     <Route path="/users" component={Users} />
                     <Route path="/todo" component={ToDo} />
+                    <Redirect from="/" to="courses/" exact/>
                 </Switch>
             </div>
         );

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import './ListCourses.css';
 
 class ListCourses extends Component {
     state = {
@@ -12,7 +11,7 @@ class ListCourses extends Component {
     };
 
     componentDidMount() {
-        console.log(this.props);
+        // console.log(this.props);
     }
 
     goToSelectedCourse(id) {
@@ -23,11 +22,11 @@ class ListCourses extends Component {
         return (
             <div>
                 <h1>Amazing Udemy Courses</h1>
-                <section className="Courses">
+                <section className="ListCourses">
                     {this.state.courses.map(course => {
                         return (
                             <article
-                                className="Course"
+                                className="ListCoursesCourse"
                                 key={course.id}
                                 onClick={() => {
                                     this.goToSelectedCourse(course.id)
