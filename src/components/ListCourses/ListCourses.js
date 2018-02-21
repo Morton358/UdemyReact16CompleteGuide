@@ -10,7 +10,6 @@ class ListCourses extends Component {
             pathname: this.props.match.url + '/course/' + id,
             search: '?title=' + title
         });
-        this.props.match.url + '/course/' + id;
     }
 
     render() {
