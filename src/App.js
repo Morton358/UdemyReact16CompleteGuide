@@ -1,13 +1,18 @@
 import React, { Component } from 'react';
-import './App.css';
+
+import Persons from './containers/Persons';
 
 class App extends Component {
-    state = {};
-
     render() {
         return (
             <div className="App">
-                <h1>Hi I am React App!</h1>
+                <ol>
+                    <li>
+                        Turn this app into one which does NOT use local state
+                        (in components) but instead uses Redux
+                    </li>
+                </ol>
+                <Persons />
             </div>
         );
     }
