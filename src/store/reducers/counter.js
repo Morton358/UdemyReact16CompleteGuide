@@ -1,15 +1,16 @@
 /*eslint indent: ["error", 4, { "SwitchCase": 1 }]*/
 
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     counter: 0
 };
 
 const reducer = (state = initialState, action) => {
+    let newState = null
     switch (action.type) {
         case actionTypes.INCREMENT:
-            const newState = Object.assign({}, state);
+            newState = Object.assign({}, state);
             newState.counter = state.counter + 1;
             return newState;
         case actionTypes.DECREMENT:
@@ -27,8 +28,9 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 counter: state.counter - action.value
             };
+        default:
+            return state;
     }
-    return state;
 };
 
 export default reducer;
